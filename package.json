@@ -1,0 +1,12 @@
+{
+  "name": "cf-viz",
+  "private": true,
+  "scripts": {
+    "setup": "npm i && npm i --prefix server && npm i --prefix client",
+    "db": "docker compose up -d",
+    "dev": "concurrently -n api,web -c blue,magenta \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "build": "npm run build --prefix client",
+    "start": "npm run build && npm start --prefix server"
+  },
+  "devDependencies": { "concurrently": "^8.2.2" }
+}
